@@ -27,7 +27,7 @@ def dfs(begin,chk,res,tick,tf_id):
         res_copy.append(begin[0])
         res_copy.append(begin[1])
         answer.append(res_copy)
-        res_copy = []
+
 
     else: #추가할게 남았다면
         res_copy.append(begin[0]) #현재 티켓 결과에 추가

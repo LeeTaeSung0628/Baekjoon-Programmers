@@ -16,7 +16,6 @@ def dfs(me,name,cnt):
             dfs(i,c_name,cnt+min(abs(i-me),len(name)-i+me,abs(len(name)-me+i)))
     
     if check == True: #방문할게 더이상 없다면
-        #print(cnt)
         res.append(cnt)
     
 def solution(name):
@@ -47,9 +46,9 @@ def solution(name):
     dfs(meplac,name,cnt)
     
     #print("총길이 : ",len(res))
-    minv = 99999
-    for i in res:
-        minv = min(minv,i)
+    res.sort()
+    minv = res[0]
+    
         
     total+=minv
     

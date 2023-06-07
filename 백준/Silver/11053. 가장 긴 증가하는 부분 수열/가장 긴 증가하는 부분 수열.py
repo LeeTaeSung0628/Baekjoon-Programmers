@@ -35,9 +35,7 @@ def ezin(x,ez):
             end = mid
         elif ez[mid] < x: #중간값보다 크다면
             start = mid+1 #나머지를 버렸으므로, 스타트값이 반복될수 있다.
-        elif ez[mid] == x:
-            ez[mid] = x
-            break
+
 
     ez[end] = x
 

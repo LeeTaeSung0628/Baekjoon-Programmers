@@ -19,7 +19,15 @@ for i in range(len(maps)):
     for j in range(len(maps[0])):
         maps[i][j] = maps[i][j]+temp
         temp = maps[i][j]
-        
+
+#세로 누적합 테이블 만들기
+for j in range(len(maps[0])):
+    temp = 0
+    for i in range(len(maps)):
+        maps[i][j] = maps[i][j]+temp
+        temp = maps[i][j]
+
+cnt = 0
 for item in qe:
     cnt = 0
     x1,y1,x2,y2 = item
@@ -27,10 +35,15 @@ for item in qe:
     y1 = y1-1
     x2 = x2-1
     y2 = y2-1
-
-    for x in range(x1,x2+1):
-        com = 0
-        if y1-1 >= 0:
-            com = (maps[x][y1-1]) #0이하면 안빼도 됨
-        cnt += maps[x][y2] - com
+    #누적값 - ((왼쪽 영역 + 위쪽영역) - 대각선영역)
+    p1 = 0
+    p2 = 0
+    p3 = 0
+    if y1-1 >= 0:
+        p1 = maps[x2][y1-1]
+    if x1-1 >= 0:
+        p2 = maps[x1-1][y2]
+    if x1-1 >= 0 and y1-1 >= 0:
+        p3 = maps[x1-1][y1-1]
+    cnt += maps[x2][y2] - ((p1 + p2) - p3)
     print(cnt)

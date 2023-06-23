@@ -88,8 +88,6 @@ def solution(com):
             else: a = maps[p[0]][p[1]][0]
             ans.append(a)
             
-    for m in maps:
-        print(m)
         
     answer = ans
     return answer

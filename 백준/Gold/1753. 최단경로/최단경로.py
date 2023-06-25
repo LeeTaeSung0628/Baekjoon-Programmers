@@ -16,7 +16,6 @@ for item in edge:
     x, y, num = item
     maps[x-1].append([num,y-1])
 
-check = [False] * n #재방문 방지 배열
 #다익스트라 알고리즘 사용
 q = [] #튜플 형태로 삽입시 0번째 값을 기준으로 우선순위 힙을 정한다.
 heapq.heappush(q,(0,start - 1))
@@ -25,7 +24,6 @@ while q:
     #우선순위가 가장높은것(방문가능한점 중 최단거리) pop
     dist , now = heapq.heappop(q)
     #방문처리
-    check[now] = True
     if dist_arr[now] > dist: #최소값 갱신
         dist_arr[now] = dist
         #방문 가능한 지점 찾기

@@ -32,12 +32,23 @@ while q:
         ny = y + py[i]
         if 0 <= nx < len(maps) and 0 <= ny < len(maps[0]):
             #재방문 방지
+            """
+                상태에 따라 재방문여부를 검사한다.
+                벽을 부시지 않고 먼저 방문했을때, 정답에 다가가지 못하는 경우
+                벽을 부시고 재방문해야하기 때문이다.
+            """
             if distArr[broken][nx][ny] != 0:
                 continue
             
             if maps[nx][ny] == 0: #갈수 있는 방향이고
                 q.append([broken,nx,ny,dist+1])
-                distArr[broken][nx][ny] = dist+1
+                """
+                방문 코드를 탐색코드 안에 넣어줌으로써, q에 필요없는 값이
+                올라가는것을 방지한다
+                * 최단거리를 구할거기 때문에 이전경로의 경우의수는 고려하지
+                 않아도 된다.
+                """
+                distArr[broken][nx][ny] = dist+1 
             else:#벽일때,
                 if broken == 0: #아직 벽을 깰 수 있다면!?
                     q.append([1,nx,ny,dist+1])

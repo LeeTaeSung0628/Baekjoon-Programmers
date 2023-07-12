@@ -30,16 +30,17 @@ def LIS(num):
     end = len(bin_arr)-1
     
     mid = (st+end) // 2
-    while st < end:
+    while st <= end:
         mid = (st+end) // 2
-        if num <= bin_arr[mid]: #작거나 같다면 줄이기(num 이상인 애를 찾기위해)
-            end = mid
+        if num < bin_arr[mid]: #작거나 같다면 줄이기(num 이상인 애를 찾기위해)
+            end = mid-1
         elif num > bin_arr[mid]:
             st = mid+1
         elif num == bin_arr[mid]:
             bin_arr[mid] = num
-            break
-    bin_arr[end] = num
+            return
+
+    bin_arr[st] = num
 
 for i in range(1,len(arr)):
     LIS(arr[i])

@@ -14,6 +14,7 @@ def solution(number, k):
     while i<len(answer)-1 and k>0 :
         if answer[i]< answer[i+1]:
             answer=answer[:i]+answer[i+1:]
+
             k=k-1
             if i>0:
                 i=i-2

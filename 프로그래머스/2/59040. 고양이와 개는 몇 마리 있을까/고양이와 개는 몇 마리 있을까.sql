@@ -1,0 +1,12 @@
+-- 코드를 입력하세요
+-- 고양이와 개가, 각각 몇마리
+-- 고양이를 먼저 조회
+SELECT ANIMAL_TYPE,count(ANIMAL_TYPE) as count
+FROM ANIMAL_INS
+WHERE ANIMAL_TYPE = 'Cat'
+
+UNION ALL
+
+SELECT ANIMAL_TYPE,count(ANIMAL_TYPE) as count
+FROM ANIMAL_INS
+WHERE ANIMAL_TYPE = 'Dog'
